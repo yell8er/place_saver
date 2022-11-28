@@ -39,7 +39,7 @@ class PlaceDetailScreen extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          FlatButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -51,8 +51,11 @@ class PlaceDetailScreen extends StatelessWidget {
                 ),
               );
             },
-            child: Text('View on Map'),
-            textColor: Theme.of(context).primaryColor,
+            style: ElevatedButton.styleFrom(),
+            child: Text(
+              'View on Map',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
           ),
         ],
       ),

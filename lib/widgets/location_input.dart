@@ -15,7 +15,8 @@ class LocationInput extends StatefulWidget {
 class _LocationInputState extends State<LocationInput> {
   String _previewImageUrl;
   void _showPreview(double lat, double lng) {
-    final staticMapImageUrl = LocationHelper.generalLocationPreviewImage(
+    final staticMapImageUrl =
+        LocationHelper.generalLocationPreviewImage(
       latitude: lat,
       longitude: lng,
     );
@@ -46,8 +47,10 @@ class _LocationInputState extends State<LocationInput> {
     if (selectedLocation == null) {
       return;
     }
-    _showPreview(selectedLocation.latitude, selectedLocation.longitude);
-    widget.onSelectPlace(selectedLocation.latitude, selectedLocation.longitude);
+    _showPreview(
+        selectedLocation.latitude, selectedLocation.longitude);
+    widget.onSelectPlace(
+        selectedLocation.latitude, selectedLocation.longitude);
   }
 
   @override
@@ -77,16 +80,24 @@ class _LocationInputState extends State<LocationInput> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton.icon(
+            ElevatedButton.icon(
               icon: Icon(Icons.location_on),
-              label: Text('Current location'),
-              textColor: Theme.of(context).primaryColor,
+              label: Text(
+                'Current location',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
               onPressed: _getCurrentUserLocation,
             ),
-            FlatButton.icon(
+            ElevatedButton.icon(
               icon: Icon(Icons.map),
-              label: Text('Select on Map'),
-              textColor: Theme.of(context).primaryColor,
+              label: Text(
+                'Select on Map',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
               onPressed: _selectOnMap,
             ),
           ],

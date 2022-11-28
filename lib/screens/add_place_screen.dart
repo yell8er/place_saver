@@ -32,8 +32,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
         _pickedLocation == null) {
       return;
     }
-    Provider.of<GreatPlaces>(context, listen: false)
-        .addPlace(_titleController.text, _pickedImage, _pickedLocation);
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(
+        _titleController.text, _pickedImage, _pickedLocation);
     Navigator.of(context).pop();
   }
 
@@ -70,13 +70,17 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
               ),
             ),
           ),
-          RaisedButton.icon(
+          ElevatedButton.icon(
             onPressed: _savePlace,
             icon: Icon(Icons.add),
             label: Text('Add Place'),
-            elevation: 0,
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            color: Theme.of(context).accentColor,
+
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  Theme.of(context).colorScheme.secondary,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              elevation: 0,
+            ),
             // style: ElevatedButton.styleFrom(elevation: 0),
           )
         ],
